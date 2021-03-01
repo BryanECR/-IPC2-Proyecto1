@@ -61,9 +61,7 @@ def comparar(filas,matrixBin):
     while(contador < filas):
         contador_2 = contador + 1
         while(contador_2 < filas):
-            print(contador,contador_2)
             if(matrixBin[contador] == matrixBin[contador_2]):
-                print('iguales'+str(contador)+" Y "+str(contador_2))
                 iguales = True
                 
             contador_2 = contador_2 + 1
@@ -78,7 +76,6 @@ def identificar(pivote,filas,matrixBin,matrixNormal):
     matrix = 0
     while(contador < filas):
         if(matrixBin[pivote] == matrixBin[contador]):
-            print(pivote,contador)
             matrix = crearMatrixRecursiva(pivote,contador,matrixNormal)
             break
         contador = contador +1
@@ -86,51 +83,76 @@ def identificar(pivote,filas,matrixBin,matrixNormal):
     return matrix
 
 #ENCUENTRA DOS LINEAS IGUALES  
-def comparar2(matrixBin):
+def comparar2(pivote,matrixBin):
     iguales = False
-    for pivote in range(len(matrixBin)):
-        linea = pivote +1 
-        while(linea < len(matrixBin)):
-            if(matrixBin[pivote] == matrixBin[linea]):
-                iguales = True
-                break
-            linea = linea + 1
+    contador = pivote+1
+    while(contador < len(matrixBin)):
+        if(matrixBin[pivote] == matrixBin[contador]):
+            iguales = True
+            break
+
+        contador = contador +1
     
     return iguales
+               
+
+def start(pivote,matrixNormal):
+    nuevaMatrix = 0
+    Binaria = normalABin(matrixNormal)
+    if(comparar2(pivote,Binaria) == True):
+        nuevaMatrix = identificar(pivote,len(Binaria),Binaria,matrixNormal)
+    
+    return nuevaMatrix
+
+print(start(0,matriz_2))
+
+    
 
 
-def start(matrixNormal):
-    while(True):
-        if(comparar2(normalABin(matrixNormal)) == True):
-            
 
 
-print(comparar2(matrizBinaria))
 
-'''
-
-primeraUtil = algo(0,1,matrizBinaria,matriz_2)
-print(primeraUtil)
-print('convertimos esa matriz a binaria')
-primeraBin = algo(0,1,matrizBinaria,matriz_2)
-print(normalABin(primeraBin))
-print('valuamos esa nueva matriz binaria para ver si tiene filas iguales')
-print(comparar(len(primeraBin),primeraBin))
-print('Las identificamos, las sumamos y retornamos la nueva matriz')
-segundaUtil = algo(0,1,primeraBin,primeraUtil)
-print(segundaUtil)
-print('Volvemos a convertirla en binaria')
-segundaBin = algo(0,1,primeraBin,primeraUtil)
-print(normalABin(segundaBin))
-print('verificamos si tiene filas parecidas')
-print(comparar(len(segundaBin),segundaBin))
-print('Sumamos las filas parecidas y la convertimos a normal otra vez')
-terceraUtil = algo(1,2,segundaBin,segundaUtil)
-print(terceraUtil)
-print('la convertimos a binaria')
-terceraBinaria = normalABin(terceraUtil)
-print(terceraBinaria)
-print('verificamos si tiene filas parecidas')
-print(comparar(len(terceraBinaria),terceraBinaria))
-
-'''
+"""
+print('Matriz original')
+print(matriz_2)
+print('convertir la matriz original a 0 y 1')
+Binaria = normalABin(matriz_2)
+print(Binaria)
+print('tomando la fila 0 como pivote identificar si existe una fila identica')
+print(comparar2(0,Binaria))
+print('sumar las primeras dos filas iguales y crear una nueva matriz a partir del resultado')
+nuevaMatrix = identificar(0,len(Binaria),Binaria,matriz_2)
+print(nuevaMatrix)
+#*************************************************************************************************
+print('pasar la nueva matriz a 0 y 1')
+Binaria = normalABin(nuevaMatrix)
+print(Binaria)
+print('tomando la fila 0 como pivote identificar si existe una fila identica')
+print(comparar2(0,Binaria))
+print('sumar las primeras dos filas iguales y crear una nueva matriz a partir del resultado')
+nuevaMatrix = identificar(0,len(Binaria),Binaria,nuevaMatrix)
+print(nuevaMatrix)
+#*************************************************************************************
+print('pasar la nueva matriz a 0 y 1')
+Binaria = normalABin(nuevaMatrix)
+print(Binaria)
+print('tomando la fila 0 como pivote identificar si existe una fila identica')
+print(comparar2(0,Binaria))
+print('Como ya no existen filas iguales a la 0 el pivote se cambia a 1 y se repite el proceso')
+#************************************************************************************
+print('Se compara si existe otra fila identica a la fila 1')
+print(comparar2(1,Binaria))
+print('sumar las primeras dos filas iguales y crear una nueva matriz a partir del resultado')
+nuevaMatrix = identificar(1,len(Binaria),Binaria,nuevaMatrix)
+print(nuevaMatrix)
+#***********************************************************************************
+print('se pasa la nueva matriz a 0 y 1 y se compara si existe otra fila igual')
+Binaria = normalABin(nuevaMatrix)
+print(comparar2(1,Binaria))
+#********************************************************
+print('Como ya no existen filas iguales a la 0 el pivote se cambia a 2 y se repite el proceso')
+print('Se pasa a 1 y 0 y compara si existe otra fila identica a la fila 2')
+print(comparar2(2,Binaria))
+print('como ya no existen filas identicas el resultado seria')
+print(nuevaMatrix)
+"""
