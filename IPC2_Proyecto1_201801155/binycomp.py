@@ -104,8 +104,8 @@ def comparar2(matrixBin):
 
 print(comparar2(matrizBinaria))
 
-'''
 
+'''
 primeraUtil = algo(0,1,matrizBinaria,matriz_2)
 print(primeraUtil)
 print('convertimos esa matriz a binaria')
@@ -129,5 +129,4 @@ terceraBinaria = normalABin(terceraUtil)
 print(terceraBinaria)
 print('verificamos si tiene filas parecidas')
 print(comparar(len(terceraBinaria),terceraBinaria))
-
 '''
