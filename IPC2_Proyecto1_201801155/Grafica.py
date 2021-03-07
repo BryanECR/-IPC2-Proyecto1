@@ -2,14 +2,11 @@ import os
 
 class Graficar:
 
-    def __init__(self,nombre,filas,columnas,matriz):
-        self.nombre = nombre
-        self.fila = filas
-        self.columnas = columnas
-        self.matriz = matriz
+    def __init__(self):
+        pass
 
     #RECIBE LA MATRIZ A GRAFICAR Y LA CONVIERTE EN UNA CADENA DE TEXTO
-    def GraficarMatriz(self,nombre,filas,columnas,matriz):
+    def graficarMatriz(nombre,filas,columnas,matriz):
         cadena = ""
         cadena += 'Nombre[label="'+nombre+'"]\n'
         cadena += 'Filas[label= "n='+str(filas)+'"]\n'
@@ -35,12 +32,9 @@ class Graficar:
         return cadena
 
     #GENERA EL ARCHIVO DOT Y LO CONVIERTE A PNG
-    def generarGrafica(self,cadena):
+    def generarGrafica(cadena):
         file = open("graficaMatriz.dot","w")
         file.write("digraph G {\n"+cadena+"\n}")
         file.close()
         os.system('dot -Tpng graficaMatriz.dot -o graficaMatriz.png')
 
-
-    #cadena = GraficarMatriz(Nombre,filas,columnas,matriz_2)
-    #generarGrafica(cadena)

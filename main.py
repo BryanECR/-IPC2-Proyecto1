@@ -1,5 +1,7 @@
-from MSalida import ArchivoDeSalida
-from Grafica import Graficar
+
+from IPC2_Proyecto1_201801155.Grafica import Graficar
+from IPC2_Proyecto1_201801155.MSalida import ArchivoDeSalida
+
 
 matrizPrueba = [[1,0,5,12,3,7,9],[0,0,0,1,5,4,8],[1,1,1,1,1,1,0],[2,0,0,0,0,0,2]]
 
@@ -12,6 +14,7 @@ def menu():
         *       3. Escribir Archivo de salida    *
         *       4. Mostrar Datos del Estudiante  *
         *       5. Generar Grafica               *
+        *       6. Generar Grafica de Lista      *
         *       6. Salir                         *
         ******************************************
         '''
@@ -31,11 +34,12 @@ def menu():
             print("Escogiste la Opcion 2")
         elif(op == 3):
             print("Escogiste la Opcion 3")
-            ArchivoDeSalida.salida(matrizPrueba)
+            cadena =  ArchivoDeSalida.salida(matrizPrueba)
+            ArchivoDeSalida.generarSalida(cadena)
         elif(op == 4):
             print(datos)
         elif(op == 5):
-            print("Escogiste la Opcion 2")
+            print("Opcion 5")
         elif(op == 6):
             break
         else:
