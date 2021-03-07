@@ -1,6 +1,6 @@
 
-from IPC2_Proyecto1_201801155.Grafica import Graficar
-from IPC2_Proyecto1_201801155.MSalida import ArchivoDeSalida
+from Funciones.Grafica import Graficar
+from Funciones.MSalida import ArchivoDeSalida
 
 
 matrizPrueba = [[1,0,5,12,3,7,9],[0,0,0,1,5,4,8],[1,1,1,1,1,1,0],[2,0,0,0,0,0,2]]
