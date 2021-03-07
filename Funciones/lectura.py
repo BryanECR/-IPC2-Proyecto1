@@ -15,7 +15,7 @@ class Lectura:
 
 
     #RECORRIDO DE LA MATRIZ
-    def recorrer(ruta):
+    def datos(ruta):
         tree = ET.parse(ruta)
         root = tree.getroot()
 
@@ -42,11 +42,12 @@ class Lectura:
                 
                 matrix[int(x)-1][int(y)-1] = content
 
-                diccionario = {'Nombre':name,'filas':rows,'columnas':column,'matriz':matrix}
+            diccionario = {'Nombre':name,'filas':rows,'columnas':column,'matriz':matrix}
 
-                datos.append(diccionario)  
-            print('******************************* Lectura Exitosa *******************************')
+            datos.append(diccionario) 
 
-            return datos
+        print('******************************* Lectura Exitosa *******************************')
+
+        return datos
         
 
