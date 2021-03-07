@@ -1,14 +1,10 @@
 import xml.etree.ElementTree as ET
-tree = ET.parse('lectura.xml')
-root = tree.getroot()
+
 
 class Lectura:
-    #INFORMACION DE LA ETIQUETA PADRE
-    def father(numero,nombre,filas,columnas):
-        print('Numero de matriz: '+str(numero))
-        print('Nombre de la matriz: '+nombre)
-        print('filas: '+filas)
-        print('Columnas: '+columnas)
+    
+    def __init__(self) -> None:
+        pass
 
     #CREATE MATRIZ
     def create(filas,columnas,mat):
@@ -19,30 +15,38 @@ class Lectura:
 
 
     #RECORRIDO DE LA MATRIZ
-    def recorrer():
+    def recorrer(ruta):
+        tree = ET.parse(ruta)
+        root = tree.getroot()
+
+        datos = []
         name = ''
         rows = ''
         column = ''
         x = ''
         y = ''
         content = ''
-        matriz = 0
+        
         for elem in root:
             matrix = []
             name = elem.attrib['name']
             rows = elem.attrib['n']
             column = elem.attrib['m']
-            matriz = matriz+1
-            father(matriz,name,rows,column)
-            create(int(rows),int(column),matrix)
+            
+            
+            Lectura.create(int(rows),int(column),matrix)
             for subelem in elem:
                 x = subelem.attrib['x']
                 y = subelem.attrib['y']
                 content = subelem.text
-                #cont(x,y,content)
+                
                 matrix[int(x)-1][int(y)-1] = content
-            print('Contenido de la matriz')
-            print(matrix)   
-            print('**********************************')
+
+                diccionario = {'Nombre':name,'filas':rows,'columnas':column,'matriz':matrix}
+
+                datos.append(diccionario)  
+            print('******************************* Lectura Exitosa *******************************')
+
+            return datos
         
 
