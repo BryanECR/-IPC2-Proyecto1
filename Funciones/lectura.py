@@ -46,7 +46,7 @@ class Lectura:
 
             datos.append(diccionario) 
 
-        print('******************************* Lectura Exitosa *******************************')
+        print('\n******************************* Lectura Exitosa *******************************')
 
         return datos
         

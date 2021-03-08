@@ -6,7 +6,7 @@ class Graficar:
         pass
 
     #RECIBE LA MATRIZ A GRAFICAR Y LA CONVIERTE EN UNA CADENA DE TEXTO
-    def graficarMatriz(nombre,filas,columnas,matriz):
+    def generarContenido(nombre,filas,columnas,matriz):
         cadena = ""
         cadena += 'Nombre[label="'+nombre+'"]\n'
         cadena += 'Filas[label= "n='+str(filas)+'"]\n'
@@ -36,5 +36,6 @@ class Graficar:
         file = open("graficaMatriz.dot","w")
         file.write("digraph G {\n"+cadena+"\n}")
         file.close()
+        print("************** La Grafica se realizo con exito **************")
         os.system('dot -Tpng graficaMatriz.dot -o graficaMatriz.png')
 
