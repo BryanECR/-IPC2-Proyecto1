@@ -40,7 +40,7 @@ class Lectura:
                 y = subelem.attrib['y']
                 content = subelem.text
                 
-                matrix[int(x)-1][int(y)-1] = content
+                matrix[int(x)-1][int(y)-1] = int(content)
 
             diccionario = {'Nombre':name,'filas':rows,'columnas':column,'matriz':matrix}
 

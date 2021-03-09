@@ -24,6 +24,26 @@ class ListaCircular():
             aux = aux.siguiente
         print(aux.nombre)
 
+    def recorrer_Para_Graficar(self):
+        nombres = []
+        aux = self.primero
+        while aux.siguiente != self.primero:
+            nombres.append(aux.nombre) 
+            aux = aux.siguiente
+        nombres.append(aux.nombre)
+
+        return nombres 
+
+    def recorrer_para_salida(self):
+        matrixes = []
+        aux = self.primero
+        while aux.siguiente != self.primero:
+            matrixes.append(aux.matriz) 
+            aux = aux.siguiente
+        matrixes.append(aux.matriz)
+
+        return matrixes 
+
     def buscar(self,buscar):
         aux = self.primero
         if self.vacia():
